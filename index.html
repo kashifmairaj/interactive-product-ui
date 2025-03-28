@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Product Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+        .container {
+            width: 350px;
+        }
+        .box {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .box.expanded {
+            border: 2px solid #007bff;
+            padding-bottom: 20px;
+        }
+        .options {
+            display: none;
+            margin-top: 10px;
+        }
+        .expanded .options {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" onclick="toggleBox(this)">
+            <p>1 Pair - $10.00</p>
+            <div class="options">
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Color: <select><option>Black</option><option>White</option></select></label>
+            </div>
+        </div>
+        <div class="box" onclick="toggleBox(this)">
+            <p>2 Pair - $18.00</p>
+            <div class="options">
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Color: <select><option>Black</option><option>White</option></select></label>
+            </div>
+        </div>
+        <div class="box" onclick="toggleBox(this)">
+            <p>3 Pair - $24.00</p>
+            <div class="options">
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Color: <select><option>Black</option><option>White</option></select></label>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleBox(element) {
+            document.querySelectorAll('.box').forEach(box => {
+                if (box !== element) {
+                    box.classList.remove('expanded');
+                }
+            });
+            element.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
