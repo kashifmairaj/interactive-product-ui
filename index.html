@@ -14,19 +14,21 @@
             background-color: #f8f8f8;
         }
         .container {
-            width: 350px;
+            width: 400px;
         }
         .box {
             background: white;
-            border: 1px solid #ccc;
+            border: 2px solid #ccc;
             padding: 15px;
             margin-bottom: 10px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
         }
         .box.expanded {
             border: 2px solid #007bff;
             padding-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .options {
             display: none;
@@ -35,26 +37,40 @@
         .expanded .options {
             display: block;
         }
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .discount {
+            font-size: 14px;
+            color: green;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="box" onclick="toggleBox(this)">
-            <p>1 Pair - $10.00</p>
+            <p>1 Pair - <span class="price">DKK 195.00</span></p>
+            <p class="discount">50% OFF</p>
             <div class="options">
                 <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
                 <label>Color: <select><option>Black</option><option>White</option></select></label>
             </div>
         </div>
         <div class="box" onclick="toggleBox(this)">
-            <p>2 Pair - $18.00</p>
+            <p>2 Pair - <span class="price">DKK 345.00</span></p>
+            <p class="discount">40% OFF</p>
             <div class="options">
-                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
-                <label>Color: <select><option>Black</option><option>White</option></select></label>
+                <label>#1 Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>#1 Color: <select><option>Black</option><option>White</option></select></label>
+                <label>#2 Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>#2 Color: <select><option>Black</option><option>White</option></select></label>
             </div>
         </div>
         <div class="box" onclick="toggleBox(this)">
-            <p>3 Pair - $24.00</p>
+            <p>3 Pair - <span class="price">DKK 528.00</span></p>
+            <p class="discount">60% OFF</p>
             <div class="options">
                 <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
                 <label>Color: <select><option>Black</option><option>White</option></select></label>
