@@ -3,88 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Product Selection</title>
+    <title>Interactive Boxes</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            background-color: #f8f8f8;
-            position: relative;
-        }
-        .container {
-            width: 400px;
-            padding-bottom: 60px; /* Space for button */
+            margin-bottom: 60px;
         }
         .box {
-            background: white;
-            border: 2px solid #ccc;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
+            width: 200px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
             cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            position: relative;
+            transition: all 0.3s ease;
+            background-color: white;
         }
-        .box.expanded {
-            border: 2px solid #007bff;
-            padding-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .box-header {
+            padding: 10px;
+            background-color: #f0f0f0;
+            text-align: center;
         }
-        .options {
+        .box-content {
+            padding: 10px;
             display: none;
-            margin-top: 10px;
         }
-        .expanded .options {
+        .box-content.show {
             display: block;
         }
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: #007bff;
+        .color-option, .size-option {
+            margin-bottom: 10px;
         }
-        .discount {
-            font-size: 14px;
-            color: green;
-        }
-        .cart-wrapper {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background: white;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .add-to-cart-fixed {
-            width: 100%;
-            padding: 15px;
+        .add-to-cart {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             background-color: #28a745;
             color: white;
-            text-align: center;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="box" onclick="toggleBox(this)">
-            <p>1 Pair - <span class="price">DKK 195.00</span></p>
-            <p class="discount">50% OFF</p>
-            <div class="options">
-                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
-                <label>Color: <select><option>Black</option><option>White</option></select></label>
+        <div class="box" id="box1">
+            <div class="box-header">
+                <p>Option 1</p>
+            </div>
+            <div class="box-content">
+                <div class="color-option">
+                    <label for="color-select1">Color:</label>
+                    <select id="color-select1">
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+                <div class="size-option">
+                    <label for="size-select1">Size:</label>
+                    <select id="size-select1">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="box" onclick="toggleBox(this)">
-            <p>2 Pair - <span class="price">DKK 345.00</span></p>
-            <p class="discount">40% OFF</p>
-            <div class="options">
-                <label>#1 Size: <select><option>S</option><option>M</option><option>L</option></select></label>
-                <label>#1 Color: <select><option>Black</option><option>White</option></select></label>
-                <label>#2 Size: <select><option>S</option><option>M</option><option>L</option></select></label>
-                <label>#2 Color: <select><option>Black</option><option>White</option></select></label>
+        <div class="box" id="box2">
+            <div class="box-header">
+                <p>Option 2</p>
+            </div>
+            <div class="box-content">
+                <div class="color-option">
+                    <label for="color-select2">Color:</label>
+                    <select id="color-select2">
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+                <div class="size-option">
+                    <label for="size-select2">Size:</label>
+                    <select id="size-select2">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="box" onclick="
+        <div class="box" id="box3">
+            <div class="box-header">
+                <p>Option 3</p>
+            </div>
+            <div class="box-content">
+                <div class="color-option">
+                    <label for="color-select3">Color:</label>
+                    <select id="color-select3">
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+                <div class="size-option">
+                    <label for="size-select3">Size:</label>
+                    <select id="size-select3">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="add-to-cart">+ Add to Cart</button>
+    <script>
+        const boxes = document.querySelectorAll('.box');
+        
+        boxes.forEach(box => {
+            box.addEventListener('click', () => {
+                const content = box.querySelector('.box-content');
+                content.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>
+
